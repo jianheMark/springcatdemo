@@ -25,13 +25,10 @@
     </properties>
     <dependencies>
 
-
     </dependencies>
 
-  
-
     <build>
-        <pluginManagement>
+<!--        <pluginManagement>-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -43,12 +40,16 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
-
-
             </plugin>
         </plugins>
-        </pluginManagement>
+
+<!--        </pluginManagement>-->
     </build>
+    <scm>
+        <developerConnection>scm:git:https://github.com/jianheMark/springcatdemo.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
 </project>
