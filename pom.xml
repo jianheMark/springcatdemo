@@ -21,6 +21,7 @@
     <description>springcatdemo</description>
     <properties>
         <java.version>16</java.version>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
     </properties>
     <dependencies>
 
