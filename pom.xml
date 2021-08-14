@@ -16,7 +16,7 @@
     </parent>
     <groupId>jian.he</groupId>
     <artifactId>springcatdemo</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>springcatdemo</name>
     <description>springcatdemo</description>
     <properties>
@@ -49,7 +49,7 @@
     </build>
     <scm>
         <developerConnection>scm:git:https://github.com/jianheMark/springcatdemo.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>springcatdemo-0.0.2</tag>
     </scm>
 
 </project>
