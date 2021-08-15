@@ -14,15 +14,12 @@
             <th>Last Name</th>
         </tr>
         </thead>
-
         <tbody>
-
         <tr th:each="owner : ${owners}">
             <td th:text="${owner.id}">Alfreds Futterkiste</td>
             <td th:text="${owner.firstName}">Maria Anders</td>
             <td th:text="${owner.lastName}">Germany</td>
         </tr>
-
         </tbody>
     </table>
 

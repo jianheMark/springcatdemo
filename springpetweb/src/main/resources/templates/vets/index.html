@@ -8,5 +8,22 @@
 <body>
 <h1 style="text-align: center;" th:text="'List of Pets.'">List of Pets.....</h1>
 
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vet : ${vets}">
+        <td th:text="${vet.id}">Alfreds Futterkiste</td>
+        <td th:text="${vet.firstName}">Maria Anders</td>
+        <td th:text="${vet.lastName}">Germany</td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
