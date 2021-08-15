@@ -1,9 +1,13 @@
 package jian.he.services.map;
 import jian.he.model.Vet;
 import jian.he.services.CrudService;
+import jian.he.services.VetService;
+import org.springframework.stereotype.Service;
+
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudService<Vet,Long> {
+@Service
+public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
     @Override
     public Vet findById(Long id) {
         return super.findById(id);
