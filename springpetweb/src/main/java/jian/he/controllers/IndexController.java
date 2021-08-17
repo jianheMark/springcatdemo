@@ -11,4 +11,11 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("oups")
+    public String ooops(){
+        return "notimplemented";
+    }
+
+
+
 }
