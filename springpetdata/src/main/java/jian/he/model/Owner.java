@@ -1,12 +1,13 @@
 package jian.he.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Owner extends Person{
     private String address;
     private String city;
-    private String telphone;
-    private Set<Pet> pet;
+    private String telephone;
+    private Set<Pet> pet = new HashSet<>();
 
 
     public String getAddress() {
@@ -25,12 +26,12 @@ public class Owner extends Person{
         this.city = city;
     }
 
-    public String getTelphone() {
-        return telphone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public Set<Pet> getPet() {

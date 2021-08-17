@@ -3,15 +3,24 @@ package jian.he.model;
 import java.time.LocalDate;
 
 public class Pet extends BaseEntity{
-    private PerType petType;
+    private String name;
+    private PetType petType;
     private Owner owner;
     private LocalDate birthDate;
 
-    public PerType getPetType() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public PetType getPetType() {
         return petType;
     }
 
-    public void setPetType(PerType petType) {
+    public void setPetType(PetType petType) {
         this.petType = petType;
     }
 
