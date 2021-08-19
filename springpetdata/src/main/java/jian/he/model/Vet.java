@@ -1,11 +1,18 @@
 package jian.he.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "vets")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Vet extends Person{
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vet_specialties",
@@ -13,10 +20,4 @@ public class Vet extends Person{
             inverseJoinColumns = @JoinColumn(name="speciality_id"))
     private Set<Specialty> specialities = new HashSet<>();
 
-    public Set<Specialty> getSpecialities() {
-        return specialities;
-    }
-    public void setSpecialities(Set<Specialty> specialities) {
-        this.specialities = specialities;
-    }
 }
