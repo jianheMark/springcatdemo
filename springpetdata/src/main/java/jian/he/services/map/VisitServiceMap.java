@@ -2,8 +2,10 @@ package jian.he.services.map;
 
 import jian.he.model.Visit;
 import jian.he.services.VisitService;
-import java.util.Set;
+import org.springframework.stereotype.Service;
 
+import java.util.Set;
+@Service
 public class VisitServiceMap extends AbstractMapService<Visit,Long> implements VisitService {
     @Override
     public Visit findById(Long id) {
