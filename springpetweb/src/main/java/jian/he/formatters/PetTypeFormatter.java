@@ -16,22 +16,22 @@ public class PetTypeFormatter implements Formatter<PetType> {
     public PetTypeFormatter(PetTypeService petTypeService) {
         this.petTypeService = petTypeService;
     }
+    @Override
+    public String print(PetType petType, Locale locale) {
+        return petType.getName();
+    }
 
     @Override
     public PetType parse(String s, Locale locale) throws ParseException {
         Collection<PetType> findPetTypes = petTypeService.findAll();
-        System.out.println("findPetTypes Collection test: "+ findPetTypes.size());
+//        System.out.println("findPetTypes Collection test: "+ findPetTypes.size());
         for(PetType type: findPetTypes){
             if(type.getName().equals(s)){
+                System.out.println(type.getClass());
+                System.out.println(type);
                 return type;
             }
-
         }
-        throw new ParseException("type not found: " + s,0);
-    }
-
-    @Override
-    public String print(PetType petType, Locale locale) {
-        return petType.getName();
+        throw new ParseException("type not found: " + s, 0);
     }
 }

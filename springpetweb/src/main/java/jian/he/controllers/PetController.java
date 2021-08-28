@@ -1,5 +1,6 @@
 package jian.he.controllers;
 
+import jian.he.formatters.PetTypeFormatter;
 import jian.he.model.Owner;
 import jian.he.model.Pet;
 import jian.he.model.PetType;
@@ -15,7 +16,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.desktop.SystemSleepEvent;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 
 @Controller
@@ -36,9 +39,9 @@ public class PetController {
 
 
     @ModelAttribute("types")
-    public Set<Pet> populatePetTypes() {
+    public Set<PetType> populatePetTypes() {
         //todo findall return sets.
-        return petService.findAll();
+        return petTypeService.findAll();
     }
 
     @ModelAttribute("owner")
@@ -53,10 +56,18 @@ public class PetController {
 
     @GetMapping("/pets/new")
     public String initPetCreationForm(Owner owner, Model model) {
+        System.out.println("|||| now we are in get initPetCreationForm");
         Pet pet = new Pet();
         owner.getPets().add(pet);
         pet.setOwner(owner);
         model.addAttribute("pet", pet);
+        Set<PetType> a = petTypeService.findAll();
+        Iterator<PetType> i = a.iterator();
+        while(i.hasNext()){
+            System.out.println("iterating petType: "
+                    +  i.next());
+        }
+
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }
 
