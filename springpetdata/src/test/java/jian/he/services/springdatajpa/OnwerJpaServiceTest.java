@@ -5,6 +5,7 @@ import jian.he.repositories.OwnerRepository;
 import jian.he.repositories.PetRepository;
 import jian.he.repositories.PetTypeRepository;
 import jian.he.services.OwnerService;
+import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,8 +19,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -90,5 +90,13 @@ class OnwerJpaServiceTest {
 
         verify(ownerRepository).findByLastName(any());
 
+    }
+
+    @Test
+    //this case will return many.
+    void findAllByLastNameLike() {
+//        when(ownerService.findAllByLastNameLike(anyString())).thenReturn(Arrays.asList(
+//                Owner.builder().id(1L).build(),
+//                Owner.builder().id(2L).build()));
     }
 }

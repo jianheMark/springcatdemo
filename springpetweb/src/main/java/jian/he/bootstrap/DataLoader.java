@@ -93,6 +93,8 @@ public class DataLoader implements CommandLineRunner {
 
         visitService.save(catVisit);
         System.out.println("|||| Loading owners.");
+        System.out.println("owner1 have "+ owner1.getPets().size() + "pets ID is" + owner1.getPets().getClass() );
+        System.out.println("owner2 have "+ owner1.getPets().size() );
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
