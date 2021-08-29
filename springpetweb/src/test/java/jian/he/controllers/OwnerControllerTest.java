@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
@@ -37,6 +38,7 @@ class OwnerControllerTest {
 
     @BeforeEach
     void setUp() {
+
         owners = new HashSet<>();
         owners.add(Owner.builder().id(1L).build());
         owners.add(Owner.builder().id(2L).build());
