@@ -12,11 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+import javax.validation.Valid;
+
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.desktop.SystemSleepEvent;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
@@ -73,7 +74,7 @@ public class PetController {
 
     @PostMapping("/pets/new")
     public String processPetCreationForm(
-            Owner owner, @Validated Pet pet,
+            Owner owner, @Valid Pet pet,
             BindingResult result, ModelMap model) {
 
         if (StringUtils.hasLength(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null) {
@@ -99,7 +100,7 @@ public class PetController {
 
     @PostMapping("/pets/{petId}/edit")
     public String processPetUpdateForm(
-            @Validated Pet pet, Model model,
+            @Valid Pet pet, Model model,
             Owner owner, BindingResult result) {
 
         if (result.hasErrors()) {
@@ -111,6 +112,5 @@ public class PetController {
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }
-
     }
 }

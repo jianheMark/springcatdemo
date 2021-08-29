@@ -38,6 +38,11 @@ public class PetTypeJpaService implements PetTypeService {
 
     @Override
     public Set<PetType> findAll() {
-        return new HashSet<>(petTypeRepository.findAll());
+        System.out.println("Test come from here.");
+        Set<PetType> petTypes = new HashSet<>();
+        petTypeRepository.findAll().forEach(petTypes::add);
+        System.out.println(petTypes.size());
+        System.out.println(petTypes);
+        return petTypes;
     }
 }
