@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.web.bind.WebDataBinder;
@@ -60,6 +62,7 @@ public class PetController {
         System.out.println("|||| now we are in get initPetCreationForm");
         Pet pet = new Pet();
         owner.getPets().add(pet);
+
         pet.setOwner(owner);
         model.addAttribute("pet", pet);
         Set<PetType> a = petTypeService.findAll();
@@ -99,16 +102,19 @@ public class PetController {
 
 
     @PostMapping("/pets/{petId}/edit")
+
+
     public String processPetUpdateForm(
             @Valid Pet pet, Model model,
             Owner owner, BindingResult result) {
-
         if (result.hasErrors()) {
             pet.setOwner(owner);
             model.addAttribute("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
             owner.getPets().add(pet);
+            System.out.println(pet.getBirthDate());
+            System.out.println(pet.getName());
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }

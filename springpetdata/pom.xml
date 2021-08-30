@@ -7,9 +7,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>springpetdata</artifactId>
-
     <properties>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
@@ -27,8 +25,6 @@
         <version>3.12.0</version>
         <scope>test</scope>
     </dependency>
-
-
 
 
     <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
@@ -61,9 +57,6 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

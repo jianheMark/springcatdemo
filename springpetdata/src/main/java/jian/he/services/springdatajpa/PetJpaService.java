@@ -1,21 +1,28 @@
 package jian.he.services.springdatajpa;
 
+import jian.he.model.Owner;
 import jian.he.model.Pet;
+import jian.he.model.PetType;
+import jian.he.repositories.OwnerRepository;
 import jian.he.repositories.PetRepository;
 import jian.he.services.PetService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
 public class PetJpaService implements PetService {
     private final PetRepository petRepository;
+    private final OwnerRepository ownerRepository;
 
-    public PetJpaService(PetRepository petRepository) {
+    public PetJpaService(PetRepository petRepository, OwnerRepository ownerRepository) {
         this.petRepository = petRepository;
+        this.ownerRepository = ownerRepository;
     }
 
 
@@ -24,8 +31,11 @@ public class PetJpaService implements PetService {
         return petRepository.findById(aLong).orElse(null);
     }
 
+
+//    @Transactional
     @Override
     public Pet save(Pet object) {
+        System.out.println("Trying to do the save operation.");
         return petRepository.save(object);
     }
 
@@ -41,6 +51,8 @@ public class PetJpaService implements PetService {
 
     @Override
     public Set<Pet> findAll() {
-        return new HashSet<>(petRepository.findAll());
+        Set<Pet> pets = new HashSet<>();
+        petRepository.findAll().forEach(pets::add);
+        return pets;
     }
 }
